@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 .setMinMilliseconds(System.currentTimeMillis() - HUNDRED_YEARS)
                 .setMaxMilliseconds(System.currentTimeMillis())
                 .setCurMilliseconds(mLastTime)
+                .setDimAmount(0.5f)
 
                 .setYearText("")
 

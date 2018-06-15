@@ -15,6 +15,8 @@ import com.ccc.datewheelpicker.listener.OnDateSetListener;
  */
 public class ScrollerConfig {
     public Type mType = DefaultConfig.TYPE;
+    //设置黑暗度
+    protected static final float DEFAULT_DIM = 0.2f;
     @ColorRes
     public int mToolbarBkgColor = DefaultConfig.TOOLBAR_BKG_COLOR; // 背景颜色
     @ColorRes
@@ -50,4 +52,6 @@ public class ScrollerConfig {
     public OnDateSetListener mCallback; // 回调
 
     public int mMaxLines = DefaultConfig.MAX_LINE; // 最大行数, 依据控件样式
+
+    public float mDimAmount = DEFAULT_DIM;
 }

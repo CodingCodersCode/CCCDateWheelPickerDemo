@@ -31,7 +31,6 @@ public class DateWheelPicker extends DialogFragment implements View.OnClickListe
     private ScrollerConfig mScrollerConfig;
     private TimeWheel mTimeWheel;
     private long mCurrentMilliseconds;
-
     // 实例化参数, 传入数据
     private static DateWheelPicker newInstance(ScrollerConfig scrollerConfig) {
         DateWheelPicker dateScrollerDialog = new DateWheelPicker();
@@ -45,6 +44,24 @@ public class DateWheelPicker extends DialogFragment implements View.OnClickListe
         Window window = getActivity().getWindow();
         // 隐藏软键盘
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Window window;
+        WindowManager.LayoutParams params;
+        try {
+            window = getDialog().getWindow();
+            params = window.getAttributes();
+
+            params.dimAmount = mScrollerConfig.mDimAmount;
+
+            window.setAttributes(params);
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
@@ -278,6 +295,11 @@ public class DateWheelPicker extends DialogFragment implements View.OnClickListe
 
         public Builder setCallback(OnDateSetListener listener) {
             mScrollerConfig.mCallback = listener;
+            return this;
+        }
+
+        public Builder setDimAmount(float dimAmount){
+            mScrollerConfig.mDimAmount = dimAmount;
             return this;
         }
 
