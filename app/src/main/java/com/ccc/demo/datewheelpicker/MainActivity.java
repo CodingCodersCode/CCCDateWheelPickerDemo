@@ -2,6 +2,7 @@ package com.ccc.demo.datewheelpicker;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,8 +26,19 @@ public class MainActivity extends AppCompatActivity {
     private OnDateSetListener mOnDateSetListener = new OnDateSetListener() {
         @Override public void onDateSet(DateWheelPicker timePickerView, long milliseconds) {
             mLastTime = milliseconds;
-            String text = getDateToString(milliseconds);
+            //String text = getDateToString(milliseconds);
+            String text = dateFormat("yyyy-MM-dd", milliseconds);
             mTvTime.setText(text);
+
+
+
+            long convertedMillis = convertTimeToLong(text);
+
+            if (milliseconds == convertedMillis){
+                printLog("****************", "转换前后结果相同===>milliseconds=" + milliseconds + ",convertedMillis=" + convertedMillis);
+            }else {
+                printLog("****************", "转换前后结果不同===>milliseconds=" + milliseconds + ",convertedMillis=" + convertedMillis);
+            }
         }
     };
 
@@ -71,5 +83,26 @@ public class MainActivity extends AppCompatActivity {
     public String getDateToString(long time) {
         Date d = new Date(time);
         return sf.format(d);
+    }
+
+    public String dateFormat(String format, long timeMillis) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(timeMillis);
+    }
+
+    public static Long convertTimeToLong(String time) {
+        Date date = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            date = sdf.parse(time);
+            return date.getTime();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+    private void printLog(String tag, String msg){
+        Log.e(tag, msg);
     }
 }

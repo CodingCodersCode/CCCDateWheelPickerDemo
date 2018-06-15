@@ -203,30 +203,35 @@ public class DateWheelPicker extends DialogFragment implements View.OnClickListe
 
         public Builder setCyclic(boolean cyclic) {
             mScrollerConfig.cyclic = cyclic;
+            mScrollerConfig.yearCyclic = cyclic;
+            mScrollerConfig.monthCyclic = cyclic;
+            mScrollerConfig.dayCyclic = cyclic;
+            mScrollerConfig.hourCyclic = cyclic;
+            mScrollerConfig.minuteCyclic = cyclic;
             return this;
         }
 
-        public Builder setYearCyclic(boolean cyclic){
+        public Builder setYearCyclic(boolean cyclic) {
             mScrollerConfig.yearCyclic = cyclic;
             return this;
         }
 
-        public Builder setMonthCyclic(boolean cyclic){
+        public Builder setMonthCyclic(boolean cyclic) {
             mScrollerConfig.monthCyclic = cyclic;
             return this;
         }
 
-        public Builder setDayCyclic(boolean cyclic){
+        public Builder setDayCyclic(boolean cyclic) {
             mScrollerConfig.dayCyclic = cyclic;
             return this;
         }
 
-        public Builder setHourCyclic(boolean cyclic){
+        public Builder setHourCyclic(boolean cyclic) {
             mScrollerConfig.hourCyclic = cyclic;
             return this;
         }
 
-        public Builder setMinuteCyclic(boolean cyclic){
+        public Builder setMinuteCyclic(boolean cyclic) {
             mScrollerConfig.minuteCyclic = cyclic;
             return this;
         }

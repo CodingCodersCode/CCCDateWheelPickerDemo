@@ -142,7 +142,7 @@ public class TimeWheel {
         mYearAdapter.setConfig(mScrollerConfig);
         mYearView.setViewAdapter(mYearAdapter);
         mYearView.setCurrentItem(mRepository.getDefaultCalendar().year - minYear);
-        mYearView.setCyclic(mScrollerConfig.cyclic);
+        mYearView.setCyclic(mScrollerConfig.yearCyclic);
     }
 
     /**
@@ -208,7 +208,7 @@ public class TimeWheel {
                 DateConstants.FORMAT, mScrollerConfig.mMonth);
         mMonthAdapter.setConfig(mScrollerConfig);
         mMonthView.setViewAdapter(mMonthAdapter);
-        mMonthView.setCyclic(mScrollerConfig.cyclic);
+        mMonthView.setCyclic(mScrollerConfig.monthCyclic);
 
         // 当滚动数量不足时, 需要避免循环
         if (maxMonth - minMonth < mScrollerConfig.mMaxLines) {
@@ -239,7 +239,7 @@ public class TimeWheel {
         mDayAdapter = new NumericWheelAdapter(mContext, minDay, maxDay, DateConstants.FORMAT, mScrollerConfig.mDay);
         mDayAdapter.setConfig(mScrollerConfig);
         mDayView.setViewAdapter(mDayAdapter);
-        mDayView.setCyclic(mScrollerConfig.cyclic); // 是否循环
+        mDayView.setCyclic(mScrollerConfig.dayCyclic); // 是否循环
 
         // 当滚动数量不足时, 需要避免循环
         if (maxDay - minDay < mScrollerConfig.mMaxLines) {
@@ -273,7 +273,7 @@ public class TimeWheel {
         mHourAdapter = new NumericWheelAdapter(mContext, minHour, maxHour, DateConstants.FORMAT, mScrollerConfig.mHour);
         mHourAdapter.setConfig(mScrollerConfig);
         mHourView.setViewAdapter(mHourAdapter);
-        mHourView.setCyclic(mScrollerConfig.cyclic);
+        mHourView.setCyclic(mScrollerConfig.hourCyclic);
 
         // 当滚动数量不足时, 需要避免循环
         if (maxHour - minHour < mScrollerConfig.mMaxLines) {
@@ -302,7 +302,7 @@ public class TimeWheel {
         mMinuteAdapter = new NumericWheelAdapter(mContext, minMinute, maxMinute, DateConstants.FORMAT, mScrollerConfig.mMinute);
         mMinuteAdapter.setConfig(mScrollerConfig);
         mMinuteView.setViewAdapter(mMinuteAdapter);
-        mMinuteView.setCyclic(mScrollerConfig.cyclic);
+        mMinuteView.setCyclic(mScrollerConfig.minuteCyclic);
 
         // 当滚动数量不足时, 需要避免循环
         if (maxMinute - minMinute < mScrollerConfig.mMaxLines) {
